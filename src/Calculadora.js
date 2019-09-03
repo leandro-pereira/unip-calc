@@ -1,15 +1,19 @@
 import React, {Component } from 'react'
-import { Text, TextInput, View, StyleSheet } from 'react-native'
+import { Text, TextInput, View, StyleSheet, StatusBar} from 'react-native'
 
 export default class Calculadora extends Component{
     render(){
         return(
             <View style={estilo.container}>
+            <StatusBar backgroundColor="#263a7f" barStyle="light-content"/>
             <Text style={estilo.format}>Nota P1</Text>
-            <TextInput style={estilo.textfield} keyboardType={'decimal-pad'}  placeholder="Coloque sua nota" maxLength={4}  ></TextInput>
+            <TextInput style={estilo.textfield} keyboardType={'numeric'}  maxLength={4}  ></TextInput>
             <Text style={estilo.format}>Nota P2</Text>
-            <TextInput style={estilo.textfield} keyboardType={'decimal-pad'} placeholder="Coloque sua nota" min='0' max='9' maxLength={4}></TextInput>
+            <TextInput style={estilo.textfield} keyboardType={'decimal-pad'} maxLength={4}></TextInput>
             <Text style={estilo.format}>Sua média é:</Text>
+            <Text style={estilo.format}>Exame</Text>
+            <TextInput style={estilo.textfield} keyboardType={'decimal-pad'} maxLength={4}></TextInput>
+            <Text style={estilo.format}>Média mais exame :</Text>
             </View>
         )
     }
@@ -19,7 +23,8 @@ const estilo = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#5595ff"
     },
     format:{
         fontSize: 30,
@@ -27,11 +32,10 @@ const estilo = StyleSheet.create({
     },
     textfield:{
         fontSize: 20,
-        height: 100,
-        width: 200,
+        height: 50,
+        width: 100,
         textAlign: "center",
-        borderColor: "grey",
-        borderWidth: 2,
-        backgroundColor: '#dde8c9'
+        borderRadius: 10,
+        backgroundColor: 'grey'
     }
 })
